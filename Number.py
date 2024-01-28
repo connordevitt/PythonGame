@@ -1,5 +1,3 @@
-# Let's start by writing the basic structure of the "Guess the Number" game.
-
 def guess_the_number():
     import random
 
@@ -8,12 +6,15 @@ def guess_the_number():
     
     print("Welcome to Guess the Number!")
     print("I'm thinking of a number between 1 and 100.")
+    print(f"Debug: The number to guess is {number_to_guess}")  # Debug 
 
-    # The game loop
+    # The game 
     while True:
+        
         try:
-            # Player makes a guess
+            # Player guess
             guess = int(input("Make a guess: "))
+            print(f"Debug: You guessed {guess}")  # Debug
 
             # Check the guess
             if guess < number_to_guess:
@@ -26,7 +27,14 @@ def guess_the_number():
         except ValueError:
             print("Please enter a valid number.")
 
-# Let's not run the game here, as it requires interactive input which isn't possible in this environment.
+    # Prompt to type exit when finished.
+    while True:
+        exit_command = input("type 'exit' to exit: ")
+        if exit_command.lower() == 'exit':
+            break
+guess_the_number()  # Start the game
 
-# Next, we can add features like limiting the number of guesses, providing hints, etc.
-# Tell me to print "next" or "continue" to add more features or refine the code! 😊
+
+
+
+# How to create a new .exe python -m PyInstaller --onefile Number.py
