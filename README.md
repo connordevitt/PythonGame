@@ -1,4 +1,4 @@
-<titlt>Guess the Number Game</title>
+Guess the Number Game
 Overview
 "Guess the Number" is a simple yet engaging game where the player's goal is to guess a randomly generated number within a certain range. This version of the game is built with Python and Tkinter, providing a user-friendly graphical interface for an enjoyable gaming experience.
 
