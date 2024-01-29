@@ -17,7 +17,7 @@ Tkinter should be installed by default with Python. If it's not, refer to the Py
 Running the Game:
 To run the game, navigate to the folder containing the script and run the following command in your terminal:
 
-python guess_the_number.py
+python Number.py
 How to Play
 Run the game.
 Enter your guess in the provided text field and click 'Submit'.
