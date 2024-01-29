@@ -1,40 +1,59 @@
-def guess_the_number():
-    import random
+import tkinter as tk
+import random
 
-    # Generate a random number between 1 and 100
-    number_to_guess = random.randint(1, 100)
-    
-    print("Welcome to Guess the Number!")
-    print("I'm thinking of a number between 1 and 100.")
-    print(f"Debug: The number to guess is {number_to_guess}")  # Debug 
+class GuessTheNumberApp:
+    def __init__(self, root):
+        self.root = root
+        root.title("Guess the Number Game")
 
-    # The game 
-    while True:
+        # Entry for guesses
+        self.guess_entry = tk.Entry(root)
+        self.guess_entry.pack()
+
+        # Submit button
+        self.submit_button = tk.Button(root, text="Submit", command=self.submit_guess)
+        self.submit_button.pack()
+
+        # Result label
+        self.result_label = tk.Label(root, text="Guess a number between 1 and 100")
+        self.result_label.pack()
+
+        # Debug label (hidden initially)
+        self.debug_label = tk.Label(root, text="")
+        self.debug_label.pack()
+
+        # Restart button
+        self.restart_button = tk.Button(root, text="Restart", command=self.initialize_game)
+        self.restart_button.pack()
+
+        # Exit button
+        self.exit_button = tk.Button(root, text="Exit", command=root.quit)
+        self.exit_button.pack()
+
+        # Initialize game variables
+        self.initialize_game()
+
+    def initialize_game(self):
+        self.number_to_guess = random.randint(1, 100)
+        self.result_label.config(text="Guess a number between 1 and 100")
         
+        # Update the debug label with the number to guess
+        self.debug_label.config(text=f"Debug: Number to guess is {self.number_to_guess}")
+
+    def submit_guess(self):
         try:
-            # Player guess
-            guess = int(input("Make a guess: "))
-            print(f"Debug: You guessed {guess}")  # Debug
-
-            # Check the guess
-            if guess < number_to_guess:
-                print("Too low. Try again!")
-            elif guess > number_to_guess:
-                print("Too high. Try again!")
+            guess = int(self.guess_entry.get())
+            if guess < self.number_to_guess:
+                self.result_label.config(text="Too low. Try again!")
+            elif guess > self.number_to_guess:
+                self.result_label.config(text="Too high. Try again!")
             else:
-                print(f"Congratulations! You guessed the number {number_to_guess} correctly!")
-                break
+                self.result_label.config(text=f"Congratulations! You guessed it right: {self.number_to_guess}")
         except ValueError:
-            print("Please enter a valid number.")
+            self.result_label.config(text="Please enter a valid number.")
 
-    # Prompt to type exit when finished.
-    while True:
-        exit_command = input("type 'exit' to exit: ")
-        if exit_command.lower() == 'exit':
-            break
-guess_the_number()  # Start the game
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = GuessTheNumberApp(root)
+    root.mainloop()
 
-
-
-
-# How to create a new .exe python -m PyInstaller --onefile Number.py
