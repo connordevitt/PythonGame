@@ -28,11 +28,18 @@ def guess_the_number():
             print("Please enter a valid number.")
 
     # Prompt to type exit when finished.
+            
+def main():
     while True:
-        exit_command = input("type 'exit' to exit: ")
-        if exit_command.lower() == 'exit':
+        guess_the_number()  # Start the game
+
+        user_choice = input("Do you want to play again? (yes/no): ").lower()
+        if user_choice != 'yes':
+            print("Thanks for playing! See you soon!")
             break
-guess_the_number()  # Start the game
+
+if __name__ == "__main__":
+    main()
 
 
 
