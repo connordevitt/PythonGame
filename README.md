@@ -14,7 +14,7 @@ Installation
 Clone the repository or download the source code.
 Ensure Python 3.  is installed on your system.
 Tkinter should be installed by default with Python. If it's not, refer to the Python documentation for installation instructions.
-Running the Game
+Running the Game:
 To run the game, navigate to the folder containing the script and run the following command in your terminal:
 
 python guess_the_number.py
