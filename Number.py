@@ -6,6 +6,7 @@ class GuessTheNumberApp:
         self.root = root
         root.title("THE Guess the Number Game")
         root.configure(bg='dark blue')
+        
 
         # Create a frame for the widgets
         frame = tk.Frame(root, bg='dark blue', padx=10, pady=10)
@@ -16,7 +17,7 @@ class GuessTheNumberApp:
         self.guess_entry.pack(pady=5)
 
         # Submit button
-        self.submit_button = tk.Button(frame, text="Submit", command=self.submit_guess, font=('Helvetica', 12), bg='light green')
+        self.submit_button = tk.Button(frame, text="Submit", command=self.submit_guess, font=('Helvetica', 12), bg='purple', fg='white')
         self.submit_button.pack(pady=5)
 
         # Result label
@@ -28,7 +29,7 @@ class GuessTheNumberApp:
         self.debug_label.pack(pady=5)
 
         # Restart button
-        self.restart_button = tk.Button(frame, text="Restart", command=self.initialize_game, font=('Helvetica', 12), bg='yellow')
+        self.restart_button = tk.Button(frame, text="Restart", command=self.initialize_game, font=('Helvetica', 12), bg='orange')
         self.restart_button.pack(pady=5)
 
         # Exit button
@@ -41,7 +42,7 @@ class GuessTheNumberApp:
     def initialize_game(self):
         self.number_to_guess = random.randint(1, 100)
         self.result_label.config(text="Guess a number between 1 and 100.")
-        self.debug_label.config(text=f"Debug: Number to guess is {self.number_to_guess}")
+        #self.debug_label.config(text=f"Debug: Number to guess is {self.number_to_guess}")
 
     def submit_guess(self):
         try:
